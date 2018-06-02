@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+<!-- SPRING XML CONFIGURATIONS -->
+
+	<bean name="customerRepository"
+		class="com.learn.java.spring.core.repository.HibernateCustomerRepositoryImpl" ></bean>
+
+	<bean 	name="customerService" 
+			class="com.learn.java.spring.core.service.CustomerServiceImpl" 
+			autowire="byType"
+			scope="prototype">
+		  <!-- <property name="customerRepository" ref="customerRepository"></property> -->
+		<constructor-arg index="0" ref="customerRepository" />
+		  
+	
+	</bean>
+
+
+</beans>
